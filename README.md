@@ -16,7 +16,7 @@ This will generate a TL;DR block at the beginning of the element with the class 
 
 	headlineElements: 'h2,h3', 
 	target: '', 
-	wrapper: '<div id=tldr-wrapper>', 
+	wrapper: '<div class=tldr-wrapper>', 
 	listType: 'ol', 
 	headlineTag: 'strong', 
 	headerTag: 'h4', 
@@ -97,7 +97,7 @@ Default: `3`
 
 The markup for the element to wrap the entire summary (including title element) in. Only the opening tag is required.
 
-Default: `'<div id=tldr-wrapper>'`
+Default: `'<div class=tldr-wrapper>'`
 
 ##### listType
 

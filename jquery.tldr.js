@@ -20,7 +20,7 @@ Options/defaults:
 	useMetaDescription: true 			// Prepend description or og:description contents
 
 	// FORMATTING
-	wrapper: '<div id=tldr-wrapper>',	// element to wrap the list in
+	wrapper: '<div class=tldr-wrapper>',	// element to wrap the list in
 	listType: 'ol', 					// ol or ul
 	headlineTag: 'strong', 				// element to wrap the headlines in
 	headerTag: 'h4', 					// the tag for the header above the list
@@ -212,7 +212,7 @@ Copyright (c) 2014 Brett Terpstra, http://brettterpstra.com
 	$.fn.tldr.defaults = {
 		headlineElements: 'h2,h3', // Elements to consider headlines
 		target: '', // target to prepend output to
-		wrapper: '<div id=tldr-wrapper>', // element to wrap the list in
+		wrapper: '<div class=tldr-wrapper>', // element to wrap the list in
 		listType: 'ol', // ol or ul
 		headlineTag: 'strong', // element to wrap the headlines in
 		headerTag: 'h4', // the tag for the header above the list
