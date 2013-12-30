@@ -135,7 +135,7 @@ Copyright (c) 2014 Brett Terpstra, http://brettterpstra.com
 				if (grafs && grafs.length > 0) {
 					for ( p = 0; p < grafs.length; p++ ) {
 						var summaryText = getSentences($(grafs[p]).text(),opts.sentencesPerGraf),
-							prefix = p > 0 ? "[&hellip;]" : "";
+							prefix = p > 0 ? '<span class="prefix">[&hellip;]</span> ' : '';
 						if (opts.maxSummaryLength > 0) {
 							if (totalLength + summaryText.length < opts.maxSummaryLength) {
 								summary += '<p>' + prefix + summaryText + '</p> ';
