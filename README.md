@@ -2,7 +2,7 @@
 
 ## Because you write too much
 
-Brett Terpstra 2013
+Support this plugin by contributing to my [GitTip fund](https://www.gittip.com/ttscoff/).
 
 TL;DR scans for headlines in a block of content and creates a "TL;DR" element at the top with the headline and a summary generated either from a data-tldr attribute on the headline or from the beginning text of the following elements.
 
