@@ -164,7 +164,7 @@ The number of sentences per paragraph collected for the summary. If set to 0, no
 Default: `1`
 
 
-##### maxSummaryLength: 200
+##### maxSummaryLength
 
 The maximum characters per summary. Setting this to 0 removes the character limit but still allows `grafsInSummary` and `sentencesPerGraf` to impose limits.
 
