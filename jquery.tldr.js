@@ -142,7 +142,6 @@ Copyright (c) 2014 Brett Terpstra, http://brettterpstra.com
 								totalLength += summaryText.length;
 							} else {
 								summaryText = truncateAtWord(summaryText.substring(0,opts.maxSummaryLength - totalLength));
-								console.log(summaryText);
 								if (summaryText.length > 35) {
 									summary += '<p>' + prefix + summaryText + '</p> ';
 								}
@@ -201,9 +200,7 @@ Copyright (c) 2014 Brett Terpstra, http://brettterpstra.com
 		});
 
 		if (opts.useMetaDescription && $('meta[property$=description]').length > 0) {
-			console.log($('meta[property$=description]').attr('content'));
 			var intro = truncateAtWord($('meta[property$=description]').attr('content'));
-
 			output.prepend($('<li>').html(intro));
 		}
 
