@@ -44,23 +44,23 @@
 
 <p>This will generate a TL;DR block at the beginning of the element with the class '.instapaper_body' based on the contents of that element. It will use the default settings (described below):</p>
 
-<pre><code>headlineElements: 'h2,h3', 
-target: '', 
-wrapper: '&lt;div id=tldr-wrapper&gt;', 
-listType: 'ol', 
-headlineTag: 'strong', 
-headerTag: 'h4', 
-headerTitle: 'TL;DR', 
-dataAttribute: 'tldr', 
-collapsed: false, 
-    addClickHandler: true, 
-    accordion: true, 
-insertAfterLead: false, 
-grafsInSummary: 1, 
-sentencesPerGraf: 1, 
-maxSummaryLength: 200, 
-minimumHeadlines: 3, 
-useMetaDescription: true 
+<pre><code>headlineElements: 'h2,h3',
+target: '',
+wrapper: '&lt;div id=tldr-wrapper&gt;',
+listType: 'ol',
+headlineTag: 'strong',
+headerTag: 'h4',
+headerTitle: 'TL;DR',
+dataAttribute: 'tldr',
+collapsed: false,
+    addClickHandler: true,
+    accordion: true,
+insertAfterLead: false,
+grafsInSummary: 1,
+sentencesPerGraf: 1,
+maxSummaryLength: 200,
+minimumHeadlines: 3,
+useMetaDescription: true
 </code></pre>
 
 <h3>
@@ -69,12 +69,12 @@ useMetaDescription: true
 <pre><code>$('.perm .instapaper_body').tldr({
     headerTag: 'h4 class=blocktitle',
     headerTitle: '&amp;#9660; TL;DR',
-    collapsed: false, 
-    insertAfterLead: false, 
-    grafsInSummary: 0, 
-    sentencesPerGraf: 0, 
-    maxSummaryLength: 300, 
-    minimumHeadlines: 0 
+    collapsed: false,
+    insertAfterLead: false,
+    grafsInSummary: 0,
+    sentencesPerGraf: 0,
+    maxSummaryLength: 300,
+    minimumHeadlines: 0
 });
 </code></pre>
 
@@ -213,10 +213,10 @@ useMetaDescription: true
 
 <p>The number of sentences per paragraph collected for the summary. If set to 0, no limit is imposed. By default it only gathers the first sentence (up to <code>maxSummaryLength</code>).</p>
 
-<p>Default: 1</p>
+<p>Default: <code>1</code></p>
 
 <h5>
-<a name="maxsummarylength-200" class="anchor" href="#maxsummarylength-200"><span class="octicon octicon-link"></span></a>maxSummaryLength: 200</h5>
+<a name="maxsummarylength-200" class="anchor" href="#maxsummarylength-200"><span class="octicon octicon-link"></span></a>maxSummaryLength</h5>
 
 <p>The maximum characters per summary. Setting this to 0 removes the character limit but still allows <code>grafsInSummary</code> and <code>sentencesPerGraf</code> to impose limits.</p>
 
