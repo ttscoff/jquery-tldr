@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>jQuery.tldr.js by ttscoff</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>jQuery.tldr.js</h1>
+          <h2>Because you write too much</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/ttscoff/jquery-tldr/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/ttscoff/jquery-tldr/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/ttscoff/jquery-tldr" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <p>TL;DR scans for headlines in a block of content and creates a "TL;DR" element at the top with the headline and a summary generated either from a data-tldr attribute on the headline or from the beginning text of the following elements.</p>
+
+<p>You can control the length of the summary, the conditions that trigger the creation of the TL;DR block and take control of the markup it outputs. TL;DR doesn't do any styling, but it provides markup that's easy to work with.</p>
+
+<h3>
+<a name="basic-usage" class="anchor" href="#basic-usage"><span class="octicon octicon-link"></span></a>Basic usage</h3>
+
+<pre><code>$('.perm .instapaper_body').tldr();
+</code></pre>
+
+<p>This will generate a TL;DR block at the beginning of the element with the class '.instapaper_body' based on the contents of that element. It will use the default settings (described below):</p>
+
+<pre><code>headlineElements: 'h2,h3', 
+target: '', 
+wrapper: '&lt;div id=tldr-wrapper&gt;', 
+listType: 'ol', 
+headlineTag: 'strong', 
+headerTag: 'h4', 
+headerTitle: 'TL;DR', 
+dataAttribute: 'tldr', 
+collapsed: false, 
+    addClickHandler: true, 
+    accordion: true, 
+insertAfterLead: false, 
+grafsInSummary: 1, 
+sentencesPerGraf: 1, 
+maxSummaryLength: 200, 
+minimumHeadlines: 3, 
+useMetaDescription: true 
+</code></pre>
+
+<h3>
+<a name="customized-usage" class="anchor" href="#customized-usage"><span class="octicon octicon-link"></span></a>Customized usage</h3>
+
+<pre><code>$('.perm .instapaper_body').tldr({
+    headerTag: 'h4 class=blocktitle',
+    headerTitle: '&amp;#9660; TL;DR',
+    collapsed: false, 
+    insertAfterLead: false, 
+    grafsInSummary: 0, 
+    sentencesPerGraf: 0, 
+    maxSummaryLength: 300, 
+    minimumHeadlines: 0 
+});
+</code></pre>
+
+<h3>
+<a name="optionsdefaults" class="anchor" href="#optionsdefaults"><span class="octicon octicon-link"></span></a>Options/defaults:</h3>
+
+<p>There are a lot of options for as little as this plugin does. It was just easier for me to leave it up to you instead of deciding what the most generally-acceptable output and options would be.</p>
+
+<h4>
+<a name="general" class="anchor" href="#general"><span class="octicon octicon-link"></span></a>General</h4>
+
+<h5>
+<a name="target" class="anchor" href="#target"><span class="octicon octicon-link"></span></a>target</h5>
+
+<p>This is the element to prepend the output to. </p>
+
+<p>Default: the element that the <code>tldr()</code> function was called on.</p>
+
+<h5>
+<a name="insertafterlead" class="anchor" href="#insertafterlead"><span class="octicon octicon-link"></span></a>insertAfterLead</h5>
+
+<p>If true, inserts the output before the first headline in the content instead of at the very top.</p>
+
+<p>Default: <code>false</code></p>
+
+<h5>
+<a name="headlineelements" class="anchor" href="#headlineelements"><span class="octicon octicon-link"></span></a>headlineElements</h5>
+
+<p>The elements to consider section markers. This should be a comma-separated string of tag names.</p>
+
+<p>Default: <code>'h2,h3,h4'</code></p>
+
+<h5>
+<a name="dataattribute" class="anchor" href="#dataattribute"><span class="octicon octicon-link"></span></a>dataAttribute</h5>
+
+<p>The data attribute (without "data-") to check on the headline elements for summaries. If it exists, it takes precedence over the generated summary. Example markup:</p>
+
+<pre><code>&lt;h2 data-tldr="This is a single-line summary for the section below."&gt;Section title&lt;/h2&gt;
+</code></pre>
+
+<p>Default: <code>'tldr'</code></p>
+
+<h5>
+<a name="usemetadescription" class="anchor" href="#usemetadescription"><span class="octicon octicon-link"></span></a>useMetaDescription</h5>
+
+<p>If it exists, prepend the contents of a description or og:description meta tag to the output list.</p>
+
+<p>Default: <code>true</code></p>
+
+<h5>
+<a name="minimumheadlines" class="anchor" href="#minimumheadlines"><span class="octicon octicon-link"></span></a>minimumHeadlines</h5>
+
+<p>The minimum number of headline elements that must exist in text for TL;DR to do it's thing. Set it to 0 for no limit (always run). This is useful if you're using the useMetaDescription option above.</p>
+
+<p>Default: <code>3</code></p>
+
+<h4>
+<a name="formatting" class="anchor" href="#formatting"><span class="octicon octicon-link"></span></a>FORMATTING</h4>
+
+<h5>
+<a name="wrapper" class="anchor" href="#wrapper"><span class="octicon octicon-link"></span></a>wrapper</h5>
+
+<p>The markup for the element to wrap the entire summary (including title element) in. Only the opening tag is required.</p>
+
+<p>Default: <code>'&lt;div id=tldr-wrapper&gt;'</code></p>
+
+<h5>
+<a name="listtype" class="anchor" href="#listtype"><span class="octicon octicon-link"></span></a>listType</h5>
+
+<p>Output <code>ol</code> (numbered) or <code>ul</code> (bullet) list of headlines and their summaries.</p>
+
+<p>Default: <code>'ol'</code></p>
+
+<h5>
+<a name="headlinetag" class="anchor" href="#headlinetag"><span class="octicon octicon-link"></span></a>headlineTag</h5>
+
+<p>The tag with which to wrap the headlines for the section. Summaries are automatically wrapped in <code>&lt;p&gt;</code> tags following the headline.</p>
+
+<p>Default: <code>'strong'</code></p>
+
+<h5>
+<a name="headertag" class="anchor" href="#headertag"><span class="octicon octicon-link"></span></a>headerTag</h5>
+
+<p>The tag for the main header above the list.</p>
+
+<p>Default: <code>'h4'</code></p>
+
+<h5>
+<a name="headertitle" class="anchor" href="#headertitle"><span class="octicon octicon-link"></span></a>headerTitle</h5>
+
+<p>The text for the header above the list.</p>
+
+<p>Default: <code>'TL;DR'</code></p>
+
+<h5>
+<a name="collapsed" class="anchor" href="#collapsed"><span class="octicon octicon-link"></span></a>collapsed</h5>
+
+<p>If <code>collapsed</code> is true, summaries are hidden on load and expand and collapse when their headlines are clicked.</p>
+
+<p>Default: <code>false</code></p>
+
+<h5>
+<a name="addclickhandler" class="anchor" href="#addclickhandler"><span class="octicon octicon-link"></span></a>addClickHandler</h5>
+
+<p><em>Ignored unless <code>collapsed</code> is true</em></p>
+
+<p>If true, this will add a handler to open a collapsed summary on click. Only set it to false if you're using <code>collapsed</code> and are providing a custom handler (e.g. your styling allows for a popup on hover or you want a more complex display mechanism).</p>
+
+<p>Setting this to <code>false</code> applies no handlers to the headlines at all.</p>
+
+<p>Default: <code>true</code></p>
+
+<h5>
+<a name="accordion" class="anchor" href="#accordion"><span class="octicon octicon-link"></span></a>accordion</h5>
+
+<p><em>Ignored unless <code>collapsed</code> and <code>addClickHandler</code> are true</em></p>
+
+<p>If true (and you're using collapsed summaries and default click handler), expanding a summary by clicking the headline will collapse other summaries. </p>
+
+<p>Default: <code>true</code></p>
+
+<h4>
+<a name="summarization" class="anchor" href="#summarization"><span class="octicon octicon-link"></span></a>SUMMARIZATION</h4>
+
+<h5>
+<a name="grafsinsummary" class="anchor" href="#grafsinsummary"><span class="octicon octicon-link"></span></a>grafsInSummary</h5>
+
+<p>The number of paragraphs to summarize per section. If this is set to a value higher than 1, the first <code>sentencesPerGraf</code> setting will be used to extract the first <em>X</em> sentences from each paragraph until the <code>maxSummaryLength</code> is reached.</p>
+
+<p>If set to 0, then no limit is imposed and <code>maxSummaryLength</code> will determine the result.</p>
+
+<p>Default: <code>1</code></p>
+
+<h5>
+<a name="sentencespergraf" class="anchor" href="#sentencespergraf"><span class="octicon octicon-link"></span></a>sentencesPerGraf</h5>
+
+<p>The number of sentences per paragraph collected for the summary. If set to 0, no limit is imposed. By default it only gathers the first sentence (up to <code>maxSummaryLength</code>).</p>
+
+<p>Default: 1</p>
+
+<h5>
+<a name="maxsummarylength-200" class="anchor" href="#maxsummarylength-200"><span class="octicon octicon-link"></span></a>maxSummaryLength: 200</h5>
+
+<p>The maximum characters per summary. Setting this to 0 removes the character limit but still allows <code>grafsInSummary</code> and <code>sentencesPerGraf</code> to impose limits.</p>
+
+<h3>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+
+<pre><code>Copyright (c) 2014 Brett Terpstra, http://brettterpstra.com
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</code></pre>
+        </section>
+
+        <footer>
+          jQuery.tldr.js is maintained by <a href="https://github.com/ttscoff">ttscoff</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+                  <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-34296025-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+      </div>
+    </div>
+  </body>
+</html>
