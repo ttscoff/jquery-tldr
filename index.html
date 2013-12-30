@@ -1,36 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>jQuery.tldr.js by ttscoff</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <title>jQuery.tldr.js by ttscoff</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1 class="header">jQuery.tldr.js</h1>
-        <p class="header">Because you write too much</p>
+    <header>
+      <div class="inner">
+        <h1>jQuery.tldr.js</h1>
+        <h2>Because you write too much</h2>
+        <a href="https://github.com/ttscoff/jquery-tldr" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
 
-        <ul>
-          <li class="download"><a class="buttons" href="https://github.com/ttscoff/jquery-tldr/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/ttscoff/jquery-tldr/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/ttscoff/jquery-tldr">View On GitHub</a></li>
-        </ul>
-
-        <p class="header">This project is maintained by <a class="header name" href="https://github.com/ttscoff">ttscoff</a></p>
-
-
-      </header>
-      <section>
-        <p>Support this plugin by contributing to my <a href="https://www.gittip.com/ttscoff/">GitTip fund</a>.</p>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p>Support this plugin by contributing to my <a href="https://www.gittip.com/ttscoff/">GitTip fund</a>.</p>
 
 <p>TL;DR scans for headlines in a block of content and creates a "TL;DR" element at the top with the headline and a summary generated either from a data-tldr attribute on the headline or from the beginning text of the following elements.</p>
 
@@ -44,23 +42,23 @@
 
 <p>This will generate a TL;DR block at the beginning of the element with the class '.instapaper_body' based on the contents of that element. It will use the default settings (described below):</p>
 
-<pre><code>headlineElements: 'h2,h3',
-target: '',
-wrapper: '&lt;div id=tldr-wrapper&gt;',
-listType: 'ol',
-headlineTag: 'strong',
-headerTag: 'h4',
-headerTitle: 'TL;DR',
-dataAttribute: 'tldr',
-collapsed: false,
-    addClickHandler: true,
-    accordion: true,
-insertAfterLead: false,
-grafsInSummary: 1,
-sentencesPerGraf: 1,
-maxSummaryLength: 200,
-minimumHeadlines: 3,
-useMetaDescription: true
+<pre><code>headlineElements: 'h2,h3', 
+target: '', 
+wrapper: '&lt;div id=tldr-wrapper&gt;', 
+listType: 'ol', 
+headlineTag: 'strong', 
+headerTag: 'h4', 
+headerTitle: 'TL;DR', 
+dataAttribute: 'tldr', 
+collapsed: false, 
+    addClickHandler: true, 
+    accordion: true, 
+insertAfterLead: false, 
+grafsInSummary: 1, 
+sentencesPerGraf: 1, 
+maxSummaryLength: 200, 
+minimumHeadlines: 3, 
+useMetaDescription: true 
 </code></pre>
 
 <h3>
@@ -69,12 +67,12 @@ useMetaDescription: true
 <pre><code>$('.perm .instapaper_body').tldr({
     headerTag: 'h4 class=blocktitle',
     headerTitle: '&amp;#9660; TL;DR',
-    collapsed: false,
-    insertAfterLead: false,
-    grafsInSummary: 0,
-    sentencesPerGraf: 0,
-    maxSummaryLength: 300,
-    minimumHeadlines: 0
+    collapsed: false, 
+    insertAfterLead: false, 
+    grafsInSummary: 0, 
+    sentencesPerGraf: 0, 
+    maxSummaryLength: 300, 
+    minimumHeadlines: 0 
 });
 </code></pre>
 
@@ -216,7 +214,7 @@ useMetaDescription: true
 <p>Default: <code>1</code></p>
 
 <h5>
-<a name="maxsummarylength-200" class="anchor" href="#maxsummarylength-200"><span class="octicon octicon-link"></span></a>maxSummaryLength</h5>
+<a name="maxsummarylength" class="anchor" href="#maxsummarylength"><span class="octicon octicon-link"></span></a>maxSummaryLength</h5>
 
 <p>The maximum characters per summary. Setting this to 0 removes the character limit but still allows <code>grafsInSummary</code> and <code>sentencesPerGraf</code> to impose limits.</p>
 
@@ -244,13 +242,26 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </code></pre>
-      </section>
-      <footer>
-        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
-      </footer>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/ttscoff/jquery-tldr/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/ttscoff/jquery-tldr/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/ttscoff/jquery-tldr"></a> is maintained by <a href="https://github.com/ttscoff">ttscoff</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		          <script type="text/javascript">
+
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
