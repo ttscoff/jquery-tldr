@@ -161,7 +161,7 @@ Default: `1`
 
 The number of sentences per paragraph collected for the summary. If set to 0, no limit is imposed. By default it only gathers the first sentence (up to `maxSummaryLength`).
 
-Default: 1
+Default: `1`
 
 
 ##### maxSummaryLength: 200
