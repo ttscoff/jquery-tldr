@@ -11,9 +11,9 @@ Description:
 Options/defaults:
 
 	// GENERAL
-	target: '',							// target to prepend output to, defaults to the context of the plugin
-	insertAfterLead: false, 			// insert the output before the first headline
-										// instead of at the top
+	target: '',						// target to prepend output to, defaults to the context of the plugin
+	insertAfterLead: false, 				// insert the output before the first headline
+									// instead of at the top
 	headlineElements: 'h2,h3,h4', 		// Elements to consider headlines
 	dataAttribute: 'tldr', 				// data attribute for summaries
 	minimumHeadlines: 3					// minimum number of headlines in text required to execute, 0 no limit
@@ -28,10 +28,10 @@ Options/defaults:
 
 	collapsed: false,		 			// if true, summaries collapse and expand on headline clicks
 		addClickHandler: true,			// add handler to open collapsed summary on click
-										// set to false if you're providing a custom handler
-										// ignored unless collapsed is true
+									// set to false if you're providing a custom handler
+									// ignored unless collapsed is true
 		accordion: true,		 		// only one visible summary at a time,
-										// ignored unless collapsed is true
+									// ignored unless collapsed is true
 
 	// SUMMARIZATION
 	grafsInSummary: 1, 					// number of paragraphs to summarize
